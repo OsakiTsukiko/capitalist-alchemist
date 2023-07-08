@@ -1,0 +1,130 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8hx6hh6h8pf7"]
+
+[ext_resource type="Script" path="res://src/main_menu.gd" id="1_1nygn"]
+[ext_resource type="FontFile" uid="uid://jp2ejc0xasmn" path="res://assets/fonts/Blackwood Castle.ttf" id="1_aeywl"]
+[ext_resource type="FontFile" uid="uid://dkjk58of0eyfk" path="res://assets/fonts/BlackwoodCastleShadow.ttf" id="2_lf8gm"]
+[ext_resource type="FontFile" uid="uid://b14682xgll42v" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="3_a5byb"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1nygn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TitleCenterContainter" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TitleCenterContainter"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TitleCenterContainter/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_aeywl")
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "[center]Capitalist Alchemist[/center]"
+fit_content = true
+
+[node name="SubTitle" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TitleCenterContainter/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_lf8gm")
+theme_override_font_sizes/normal_font_size = 75
+bbcode_enabled = true
+text = "[center] - Reverse Engineering Potions - [/center]"
+fit_content = true
+
+[node name="Padding" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="ButtonCenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MainButtons" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ButtonCenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BtnStart" type="Button" parent="MarginContainer/VBoxContainer/ButtonCenterContainer/MainButtons"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_a5byb")
+theme_override_font_sizes/font_size = 65
+text = "Start"
+
+[node name="BtnOptions" type="Button" parent="MarginContainer/VBoxContainer/ButtonCenterContainer/MainButtons"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_a5byb")
+theme_override_font_sizes/font_size = 65
+text = "Options"
+
+[node name="BtnQuit" type="Button" parent="MarginContainer/VBoxContainer/ButtonCenterContainer/MainButtons"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_a5byb")
+theme_override_font_sizes/font_size = 65
+text = "Quit"
+
+[node name="OptionButtons" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ButtonCenterContainer"]
+visible = false
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/ButtonCenterContainer/OptionButtons"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_a5byb")
+theme_override_font_sizes/font_size = 65
+button_pressed = true
+text = "Sound Effects"
+alignment = 1
+
+[node name="CheckBox2" type="CheckBox" parent="MarginContainer/VBoxContainer/ButtonCenterContainer/OptionButtons"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_a5byb")
+theme_override_font_sizes/font_size = 65
+button_pressed = true
+text = "Music
+"
+alignment = 1
+
+[node name="BtnBack" type="Button" parent="MarginContainer/VBoxContainer/ButtonCenterContainer/OptionButtons"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_a5byb")
+theme_override_font_sizes/font_size = 65
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonCenterContainer/MainButtons/BtnStart" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonCenterContainer/MainButtons/BtnOptions" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonCenterContainer/MainButtons/BtnQuit" to="." method="_on_btn_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonCenterContainer/OptionButtons/BtnBack" to="." method="_on_btn_option_back_pressed"]
