@@ -1,3 +1,4 @@
+class_name Cauldron
 extends Potion
 
 func add_ingredient(p_ingr: Ingredient):
@@ -20,6 +21,21 @@ func remove_ingredient(p_ingr: Ingredient):
 	if ingr_array.is_empty():
 		color = Color.TRANSPARENT
 	else:
-		color = ingr_array[0].color
-		for i in range(ingr_array.size() - 1):
-			color = Mixbox.lerp(color, ingr_array[i + 1].color, 0.5)
+		var color_arr: Array[Color] = []
+		for i in ingr_array:
+			color_arr.push_back(i.color)
+		color = Utils.mixer(color_arr)
+
+func remove_ingredient_2(p_ingr: Ingredient):
+	
+	prop_array[p_ingr.prop_arr[0]] -= 1
+	prop_array[p_ingr.prop_arr[1]] -= 1
+	ingr_array.erase(p_ingr)
+	
+	if ingr_array.is_empty():
+		color = Color.TRANSPARENT
+	else:
+		var color_arr: Array[Color] = []
+		for i in ingr_array:
+			color_arr.push_back(i.color)
+		color = Utils.mixer(color_arr)
