@@ -22,23 +22,6 @@ func create_ingredients():
 		),
 		
 		Ingredient.new(
-			"holy_water", 
-			preload("res://assets/img/ing/HOLY_WATER.png"),
-			"Blessed by an unqualified priest, somehow still has magical properties.",
-			Color(97.0, 225.0, 244.0) / 255, 
-			[Ingredient.INGREDIENT_PROPERTIES.MOISTURE, Ingredient.INGREDIENT_PROPERTIES.MAGIC], 
-			1
-		),
-		
-		Ingredient.new(
-			"moonflower_seed_oil", 
-			preload("res://assets/img/ing/MOONFLOWER_SEED_OIL.png"),
-			"Great for cooking as well. A liquid that tastes of grass.",
-			Color(139.0, 179.0, 85.0) / 255, 
-			[Ingredient.INGREDIENT_PROPERTIES.MOISTURE, Ingredient.INGREDIENT_PROPERTIES.S_VEGETAL], 			2
-		),
-		
-		Ingredient.new(
 			"virgin_blood", 
 			preload("res://assets/img/ing/VIRGIN_BLOOD.png"),
 			"Turned slightly solid from no use, though the bitter, iron aftertaste still shines through",
@@ -129,6 +112,15 @@ func create_ingredients():
 		),
 		
 		Ingredient.new(
+			"holy_water", 
+			preload("res://assets/img/ing/HOLY_WATER.png"),
+			"Blessed by an unqualified priest, somehow still has magical properties.",
+			Color(97.0, 225.0, 244.0) / 255, 
+			[Ingredient.INGREDIENT_PROPERTIES.MOISTURE, Ingredient.INGREDIENT_PROPERTIES.MAGIC], 
+			1
+		),
+		
+		Ingredient.new(
 			"abigail", 
 			preload("res://assets/img/ing/ABIGAIL.png"),
 			"What a dull little girl. Cursed by a witch.",
@@ -144,7 +136,15 @@ func create_ingredients():
 			Color(103.0, 48.0, 23.0) / 255, 
 			[Ingredient.INGREDIENT_PROPERTIES.T_SOUR, Ingredient.INGREDIENT_PROPERTIES.S_METALIC], 
 			14
-		)
+		),
+		
+		Ingredient.new(
+			"moonflower_seed_oil", 
+			preload("res://assets/img/ing/MOONFLOWER_SEED_OIL.png"),
+			"Great for cooking as well. A liquid that tastes of grass.",
+			Color(139.0, 179.0, 85.0) / 255, 
+			[Ingredient.INGREDIENT_PROPERTIES.MOISTURE, Ingredient.INGREDIENT_PROPERTIES.S_VEGETAL], 			2
+		),
 	]
 	)
 

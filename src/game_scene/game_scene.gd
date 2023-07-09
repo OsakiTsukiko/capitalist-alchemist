@@ -6,11 +6,13 @@ var indicator_visible: bool = false
 @onready var timer = $Timer	
 @onready var timer_label = $CanvasLayer/TimerLabel
 
+@onready var cabinet_node = $CanvasLayer/Cabinet
+
 func _ready():
 	timer.start()
 
 func _process(delta):
-	if (indicator_visible):
+	if (indicator_visible && !cabinet_node.visible):
 		indicator.global_position = get_viewport().get_mouse_position()
 	
 	var time_left = "";
@@ -29,19 +31,21 @@ func _process(delta):
 	timer_label.text = time_left
 
 func _on_cabinet_btn_pressed():
-	print("_on_cabinet_btn_pressed")
-
-
-# AREA STUFF
-func _on_cabinet_area_mouse_entered():
-	indicator.set_text("Ingredient Cabinet (Left Click to Open)")
-	indicator_visible = true
-	indicator.visible = indicator_visible
-
-func _on_cabinet_area_mouse_exited():
+	cabinet_node.visible = true
 	indicator_visible = false
 	indicator.visible = indicator_visible
-
+	print("AAAAAA")
 
 func _on_timer_timeout():
 	pass # Replace with function body.
+
+func _on_cabinet_btn_mouse_entered():
+	if (!cabinet_node.visible):
+		indicator.set_text("Ingredient Cabinet (Left Click to Open)")
+		indicator_visible = true
+		indicator.visible = indicator_visible
+
+func _on_cabinet_btn_mouse_exited():
+	if (!cabinet_node.visible):
+		indicator_visible = false
+		indicator.visible = indicator_visible
