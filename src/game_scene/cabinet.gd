@@ -29,3 +29,13 @@ func ind_ent_area(desc):
 func ind_ext_area():
 	indicator_visible = false
 	indicator.visible = indicator_visible
+
+
+func _on_button_pressed():
+	# CLOSE BTN
+	self.visible = false
+
+func select_ing(ing: Ingredient):
+	if(get_tree().get_nodes_in_group("game_scene")[0].has_method("select_ing")):
+		get_tree().get_nodes_in_group("game_scene")[0].select_ing(ing)
+	self.visible = false

@@ -135,3 +135,5 @@ theme_override_font_sizes/font_size = 24
 text = "Indicator"
 vertical_alignment = 1
 autowrap_mode = 3
+
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
