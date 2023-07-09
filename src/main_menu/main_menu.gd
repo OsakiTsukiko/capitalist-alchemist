@@ -1,10 +1,11 @@
 extends Control
 
+
 @onready var main_buttons = $MarginContainer/VBoxContainer/ButtonCenterContainer/MainButtons
 @onready var option_buttons = $MarginContainer/VBoxContainer/ButtonCenterContainer/OptionButtons
 
 
-func _on_btn_quit_pressed() -> void:
+func _on_btn_quit_pressed():
 	get_tree().quit()
 
 

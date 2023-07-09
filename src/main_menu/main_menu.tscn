@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8hx6hh6h8pf7"]
 
-[ext_resource type="Script" path="res://src/main_menu.gd" id="1_1nygn"]
-[ext_resource type="FontFile" uid="uid://jp2ejc0xasmn" path="res://assets/fonts/Blackwood Castle.ttf" id="1_aeywl"]
-[ext_resource type="FontFile" uid="uid://dkjk58of0eyfk" path="res://assets/fonts/BlackwoodCastleShadow.ttf" id="2_lf8gm"]
-[ext_resource type="FontFile" uid="uid://b14682xgll42v" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="3_a5byb"]
+[ext_resource type="Script" path="res://src/main_menu/main_menu.gd" id="1_ovf0n"]
+[ext_resource type="FontFile" uid="uid://jp2ejc0xasmn" path="res://assets/fonts/Blackwood Castle.ttf" id="2_hlvuv"]
+[ext_resource type="FontFile" uid="uid://dkjk58of0eyfk" path="res://assets/fonts/BlackwoodCastleShadow.ttf" id="3_dsn0r"]
+[ext_resource type="FontFile" uid="uid://b14682xgll42v" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="4_pi8l6"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1nygn")
+script = ExtResource("1_ovf0n")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -39,7 +39,7 @@ layout_mode = 2
 [node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TitleCenterContainter/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("1_aeywl")
+theme_override_fonts/normal_font = ExtResource("2_hlvuv")
 theme_override_font_sizes/normal_font_size = 120
 bbcode_enabled = true
 text = "[center]Capitalist Alchemist[/center]"
@@ -47,7 +47,7 @@ fit_content = true
 
 [node name="SubTitle" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TitleCenterContainter/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("2_lf8gm")
+theme_override_fonts/normal_font = ExtResource("3_dsn0r")
 theme_override_font_sizes/normal_font_size = 75
 bbcode_enabled = true
 text = "[center] - Reverse Engineering Potions - [/center]"
@@ -70,7 +70,7 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
-theme_override_fonts/font = ExtResource("3_a5byb")
+theme_override_fonts/font = ExtResource("4_pi8l6")
 theme_override_font_sizes/font_size = 65
 text = "Start"
 
@@ -79,7 +79,7 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
-theme_override_fonts/font = ExtResource("3_a5byb")
+theme_override_fonts/font = ExtResource("4_pi8l6")
 theme_override_font_sizes/font_size = 65
 text = "Options"
 
@@ -88,7 +88,7 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
-theme_override_fonts/font = ExtResource("3_a5byb")
+theme_override_fonts/font = ExtResource("4_pi8l6")
 theme_override_font_sizes/font_size = 65
 text = "Quit"
 
@@ -99,7 +99,7 @@ layout_mode = 2
 [node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/ButtonCenterContainer/OptionButtons"]
 layout_mode = 2
 focus_mode = 0
-theme_override_fonts/font = ExtResource("3_a5byb")
+theme_override_fonts/font = ExtResource("4_pi8l6")
 theme_override_font_sizes/font_size = 65
 button_pressed = true
 text = "Sound Effects"
@@ -108,7 +108,7 @@ alignment = 1
 [node name="CheckBox2" type="CheckBox" parent="MarginContainer/VBoxContainer/ButtonCenterContainer/OptionButtons"]
 layout_mode = 2
 focus_mode = 0
-theme_override_fonts/font = ExtResource("3_a5byb")
+theme_override_fonts/font = ExtResource("4_pi8l6")
 theme_override_font_sizes/font_size = 65
 button_pressed = true
 text = "Music
@@ -120,7 +120,7 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
-theme_override_fonts/font = ExtResource("3_a5byb")
+theme_override_fonts/font = ExtResource("4_pi8l6")
 theme_override_font_sizes/font_size = 65
 text = "Back"
 
