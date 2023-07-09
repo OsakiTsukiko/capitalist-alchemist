@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8hx6hh6h8pf7"]
+[gd_scene load_steps=7 format=3 uid="uid://b8hx6hh6h8pf7"]
 
 [ext_resource type="Script" path="res://src/main_menu/main_menu.gd" id="1_ovf0n"]
+[ext_resource type="Texture2D" uid="uid://bwkoqo1hto8p2" path="res://assets/img/ui_bg.png" id="2_cryqc"]
 [ext_resource type="FontFile" uid="uid://jp2ejc0xasmn" path="res://assets/fonts/Blackwood Castle.ttf" id="2_hlvuv"]
 [ext_resource type="FontFile" uid="uid://dkjk58of0eyfk" path="res://assets/fonts/BlackwoodCastleShadow.ttf" id="3_dsn0r"]
 [ext_resource type="FontFile" uid="uid://b14682xgll42v" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="4_pi8l6"]
+[ext_resource type="Texture2D" uid="uid://bbi8oawbm1gku" path="res://assets/img/cauldron_2.png" id="6_ya74y"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,6 +15,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ovf0n")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -169.0
+offset_top = -108.0
+offset_right = 169.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_cryqc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -39,6 +54,7 @@ layout_mode = 2
 [node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TitleCenterContainter/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
+theme_override_colors/default_color = Color(0.164706, 0.0745098, 0.231373, 1)
 theme_override_fonts/normal_font = ExtResource("2_hlvuv")
 theme_override_font_sizes/normal_font_size = 120
 bbcode_enabled = true
@@ -47,6 +63,7 @@ fit_content = true
 
 [node name="SubTitle" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TitleCenterContainter/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/default_color = Color(0.164706, 0.0745098, 0.231373, 1)
 theme_override_fonts/normal_font = ExtResource("3_dsn0r")
 theme_override_font_sizes/normal_font_size = 75
 bbcode_enabled = true
@@ -57,12 +74,17 @@ fit_content = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="ButtonCenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ButtonCenterContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/ButtonCenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="MainButtons" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ButtonCenterContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
 [node name="BtnStart" type="Button" parent="MarginContainer/VBoxContainer/ButtonCenterContainer/MainButtons"]
@@ -123,6 +145,11 @@ focus_mode = 0
 theme_override_fonts/font = ExtResource("4_pi8l6")
 theme_override_font_sizes/font_size = 65
 text = "Back"
+
+[node name="Cauldron" type="Sprite2D" parent="."]
+position = Vector2(490, 549)
+scale = Vector2(0.85354, 0.85354)
+texture = ExtResource("6_ya74y")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonCenterContainer/MainButtons/BtnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonCenterContainer/MainButtons/BtnOptions" to="." method="_on_btn_options_pressed"]
