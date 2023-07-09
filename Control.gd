@@ -3,7 +3,7 @@ extends Control
 var idk = load("res://src/game_scene/game_scene.tscn")
 
 func _ready():
-	$CenterContainer/VBoxContainer/Label.text = "OUT OF TIME\nSCORE: " + Utils.score
+	$CenterContainer/VBoxContainer/Label.text = "OUT OF TIME\nSCORE: " + str(Utils.score)
 	
 
 
