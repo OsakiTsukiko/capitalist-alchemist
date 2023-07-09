@@ -181,6 +181,7 @@ func reverse_is_ingl_valid() -> bool:
 	return ok
 
 func create_new_potion():
+	SoundManager.play_sound("quill")
 	current_potion = Potion.randomize_potion()
 	update_journal_display()
 

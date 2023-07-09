@@ -6,6 +6,7 @@ extends Node
 @onready var brew_potion_player = $BrewPotionStreamPlayer
 @onready var buy_potion_player = $BuyPotionStreamPlayer
 @onready var door_player = $DoorStreamPlayer
+@onready var quill_player = $QuillStreamPlayer
 
 
 func _ready():
@@ -27,3 +28,5 @@ func play_sound(sound_name: String):
 			buy_potion_player.play()
 		"door":
 			door_player.play()
+		"quill":
+			quill_player.play()
