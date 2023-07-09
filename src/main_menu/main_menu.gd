@@ -4,7 +4,6 @@ extends Control
 @onready var main_buttons = $MarginContainer/VBoxContainer/ButtonCenterContainer/MainButtons
 @onready var option_buttons = $MarginContainer/VBoxContainer/ButtonCenterContainer/OptionButtons
 
-
 func _on_btn_quit_pressed():
 	get_tree().quit()
 
@@ -17,6 +16,7 @@ func _on_btn_options_pressed():
 
 func _on_btn_start_pressed():
 	SoundManager.play_sound("interface click")
+	get_tree().change_scene_to_packed(load("res://src/intro_scene/intro_scene.tscn"))
 
 
 func _on_btn_option_back_pressed():

@@ -12,21 +12,26 @@ script = ExtResource("1_sv1qm")
 
 [node name="BGMStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_1pd37")
+volume_db = -10.0
 autoplay = true
 bus = &"Music Bus"
 
 [node name="InterfaceClickStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_an1et")
+volume_db = -10.0
 bus = &"Sfx Bus"
 
 [node name="BrewPotionStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_4p8t4")
+volume_db = -10.0
 bus = &"Sfx Bus"
 
 [node name="BuyPotionStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_l6a1v")
+volume_db = -10.0
 bus = &"Sfx Bus"
 
 [node name="DoorStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_fbf25")
+volume_db = -10.0
 bus = &"Sfx Bus"
