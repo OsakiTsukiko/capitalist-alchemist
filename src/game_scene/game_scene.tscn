@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3qolrbcgxuxy"]
+[gd_scene load_steps=12 format=3 uid="uid://c3qolrbcgxuxy"]
 
 [ext_resource type="Script" path="res://src/game_scene/game_scene.gd" id="1_cuv0s"]
 [ext_resource type="Texture2D" uid="uid://cv3f5tvrom8l0" path="res://assets/img/main_scene_bg.png" id="1_xgtk4"]
@@ -8,6 +8,16 @@
 [ext_resource type="FontFile" uid="uid://jp2ejc0xasmn" path="res://assets/fonts/Blackwood Castle.ttf" id="4_a8mpk"]
 [ext_resource type="PackedScene" uid="uid://dbvehg1dmn6kp" path="res://src/game_scene/cabinet.tscn" id="5_tukyl"]
 [ext_resource type="Texture2D" uid="uid://xmx2qpspvagw" path="res://assets/img/ing/ABIGAIL.png" id="6_tsl88"]
+[ext_resource type="Shader" path="res://src/temp_scene/temp_scene.gdshader" id="8_3ri3a"]
+[ext_resource type="Texture2D" uid="uid://ce6p0d78poca5" path="res://assets/img/SCRIB.png" id="8_6jdog"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_njdpf"]
+shader = ExtResource("8_3ri3a")
+shader_parameter/color = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ywsex"]
+shader = ExtResource("8_3ri3a")
+shader_parameter/color = null
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_672kn"]
 shader = ExtResource("3_p3cbb")
@@ -139,10 +149,38 @@ texture = ExtResource("6_tsl88")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="PotionNameLabel" type="Label" parent="CanvasLayer"]
+offset_left = 975.0
+offset_top = 56.0
+offset_right = 1207.0
+offset_bottom = 102.0
+theme_override_colors/font_color = Color(0.180392, 0.117647, 0.00392157, 1)
+theme_override_fonts/font = ExtResource("4_a8mpk")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PotionDescriptionLabel" type="Label" parent="CanvasLayer"]
+offset_left = 974.0
+offset_top = 150.0
+offset_right = 1286.0
+offset_bottom = 452.0
+theme_override_colors/font_color = Color(0.180392, 0.117647, 0.00392157, 1)
+theme_override_fonts/font = ExtResource("4_a8mpk")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 300.0
 one_shot = true
+
+[node name="Scrib" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ywsex")
+position = Vector2(1255, 98)
+scale = Vector2(0.412111, 0.412111)
+texture = ExtResource("8_6jdog")
 
 [connection signal="mouse_entered" from="CanvasLayer/CabinetBTN" to="." method="_on_cabinet_btn_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/CabinetBTN" to="." method="_on_cabinet_btn_mouse_exited"]

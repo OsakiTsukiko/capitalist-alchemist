@@ -24,5 +24,6 @@ func _on_ing_mouse_exited():
 
 
 func _on_ing_pressed():
+	SoundManager.play_sound("interface click")
 	if(get_tree().get_nodes_in_group("cabinet")[0].has_method("select_ing")):
 		get_tree().get_nodes_in_group("cabinet")[0].select_ing(ing)

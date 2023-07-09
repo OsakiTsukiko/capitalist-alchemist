@@ -21,7 +21,7 @@ func play_sound(sound_name: String):
 	match sound_name:
 		"interface click":
 			interface_click_player.play()
-		"brew_potion":
+		"brew":
 			brew_potion_player.play()
 		"buy_potion":
 			buy_potion_player.play()

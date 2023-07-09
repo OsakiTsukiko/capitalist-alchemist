@@ -61,5 +61,6 @@ static func randomize_potion() -> Potion:
 		rand_ingr_arr.append(rand_ingr)
 	
 	var potion: Potion = Potion.new(rand_ingr_arr)
-	
+	for i in potion.ingr_array:
+		print(i.id)
 	return potion
