@@ -26,8 +26,8 @@ func _on_btn_option_back_pressed():
 
 
 func _on_sfx_chk_box_toggled(button_pressed):
-	SoundManager.toggle_sfx(button_pressed)
 	SoundManager.play_sound("interface click")
+	SoundManager.toggle_sfx(button_pressed)
 
 
 func _on_music_chk_box_toggled(button_pressed):
