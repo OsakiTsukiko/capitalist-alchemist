@@ -18,11 +18,13 @@ corner_radius_bottom_left = 3
 [node name="Indicator" type="PanelContainer"]
 offset_right = 21.0
 offset_bottom = 33.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2cboy")
 script = ExtResource("1_5qnk3")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
@@ -34,5 +36,4 @@ theme_override_colors/font_color = Color(0.164706, 0.12549, 0.105882, 1)
 theme_override_fonts/font = ExtResource("2_q6l5x")
 theme_override_font_sizes/font_size = 24
 text = "Indicator"
-horizontal_alignment = 3
 vertical_alignment = 1

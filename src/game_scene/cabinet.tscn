@@ -1,9 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbvehg1dmn6kp"]
+[gd_scene load_steps=10 format=3 uid="uid://dbvehg1dmn6kp"]
 
-[ext_resource type="StyleBox" uid="uid://lmr5r37gvuml" path="res://src/game_scene/cabinet_style.tres" id="1_naebe"]
+[ext_resource type="Script" path="res://src/game_scene/cabinet.gd" id="1_pvxgp"]
+[ext_resource type="FontFile" uid="uid://jp2ejc0xasmn" path="res://assets/fonts/Blackwood Castle.ttf" id="2_acd01"]
+[ext_resource type="Script" path="res://src/game_scene/Indicator_l_cab.gd" id="3_ralq6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rastr"]
-bg_color = Color(0, 0, 0, 0.286275)
+bg_color = Color(0, 0, 0, 0.603922)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfmc0"]
 bg_color = Color(0.313726, 0.254902, 0.219608, 1)
@@ -12,13 +14,47 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Control" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrnhi"]
+bg_color = Color(0.313726, 0.254902, 0.219608, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8btfc"]
+bg_color = Color(0.188235, 0.14902, 0.12549, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ni7of"]
+bg_color = Color(0.12549, 0.0980392, 0.0784314, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cboy"]
+bg_color = Color(0.968627, 0.815686, 0.52549, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.164706, 0.12549, 0.105882, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="Control" type="Control" groups=["cabinet"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pvxgp")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -37,154 +73,65 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Panel/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cfmc0")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/CenterContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/CenterContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="GridContainer" type="GridContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="Panel/CenterContainer/VBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 columns = 5
 
-[node name="BG" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("1_naebe")
-
-[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG"]
-custom_minimum_size = Vector2(100, 100)
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="BG2" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 100)
+[node name="Button" type="Button" parent="Panel/CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("1_naebe")
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_constants/h_separation = 5
+theme_override_fonts/font = ExtResource("2_acd01")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrnhi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8btfc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ni7of")
+text = "
+CLOSE
+ "
 
-[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG2"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
+[node name="Indicator" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 47.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2cboy")
+script = ExtResource("3_ralq6")
 
-[node name="BG3" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 100)
+[node name="MarginContainer" type="MarginContainer" parent="Indicator"]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("1_naebe")
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
 
-[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG3"]
-custom_minimum_size = Vector2(100, 100)
+[node name="Label" type="Label" parent="Indicator/MarginContainer"]
 layout_mode = 2
-
-[node name="BG4" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("1_naebe")
-
-[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG4"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="BG5" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("1_naebe")
-
-[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG5"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="BG6" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("1_naebe")
-
-[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG6"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="BG7" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("1_naebe")
-
-[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG7"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="BG8" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("1_naebe")
-
-[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG8"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="BG9" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("1_naebe")
-
-[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG9"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="BG10" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("1_naebe")
-
-[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG10"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="BG11" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("1_naebe")
-
-[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG11"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="BG12" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("1_naebe")
-
-[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG12"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="BG13" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("1_naebe")
-
-[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG13"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="BG14" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("1_naebe")
-
-[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG14"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="BG15" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("1_naebe")
-
-[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG15"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
+theme_override_colors/font_color = Color(0.164706, 0.12549, 0.105882, 1)
+theme_override_fonts/font = ExtResource("2_acd01")
+theme_override_font_sizes/font_size = 24
+text = "Indicator"
+vertical_alignment = 1
+autowrap_mode = 3
