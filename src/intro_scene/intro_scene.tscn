@@ -27,7 +27,7 @@ offset_left = 144.0
 offset_top = 153.0
 offset_right = 1166.0
 offset_bottom = 702.0
-theme_override_colors/default_color = Color(0.164706, 0.0745098, 0.231373, 1)
+theme_override_colors/default_color = Color(0.145098, 0.0823529, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/normal_font = ExtResource("3_anyt3")
 theme_override_fonts/bold_font = ExtResource("3_anyt3")
@@ -40,6 +40,7 @@ Send your assistant to analyze the potions for you. It would be too obvious if y
 
 [node name="BtnBegin" type="Button" parent="."]
 custom_minimum_size = Vector2(300, 0)
+layout_mode = 0
 offset_left = 1015.0
 offset_top = 760.0
 offset_right = 1315.0
