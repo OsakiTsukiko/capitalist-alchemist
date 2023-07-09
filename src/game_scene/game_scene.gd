@@ -27,9 +27,9 @@ var current_potion: Potion
 @onready var description_label = $CanvasLayer/PotionDescriptionLabel
 
 func _ready():
+	SoundManager.play_sound("door")
 	timer.start()
-	current_potion = Potion.randomize_potion()
-	update_journal_display()
+	create_new_potion()
 
 func _process(delta):
 	if (indicator_visible && !cabinet_node.visible):
@@ -60,6 +60,7 @@ func select_ing(ing: Ingredient):
 	item_in_hand.visible = true
 	
 func _on_cabinet_btn_pressed():
+	SoundManager.play_sound("interface click")
 	cabinet_node.visible = true
 	indicator_visible = false
 	indicator.visible = indicator_visible
@@ -83,6 +84,7 @@ func _on_ing_btn_1_pressed():
 	ing_l[0] = selected_ing
 	if (selected_ing != null):
 		ing_btn_1.texture_normal = selected_ing.texture
+		SoundManager.play_sound("brew")
 	else:
 		ing_btn_1.texture_normal = null
 	selected_ing = null
@@ -92,6 +94,7 @@ func _on_ing_btn_2_pressed():
 	ing_l[1] = selected_ing
 	if (selected_ing != null):
 		ing_btn_2.texture_normal = selected_ing.texture
+		SoundManager.play_sound("brew")
 	else:
 		ing_btn_2.texture_normal = null
 	selected_ing = null
@@ -101,6 +104,7 @@ func _on_ing_btn_3_pressed():
 	ing_l[2] = selected_ing
 	if (selected_ing != null):
 		ing_btn_3.texture_normal = selected_ing.texture
+		SoundManager.play_sound("brew")
 	else:
 		ing_btn_3.texture_normal = null
 	selected_ing = null
@@ -110,14 +114,19 @@ func _on_ing_btn_4_pressed():
 	ing_l[3] = selected_ing
 	if (selected_ing != null):
 		ing_btn_4.texture_normal = selected_ing.texture
+		SoundManager.play_sound("brew")
 	else:
 		ing_btn_4.texture_normal = null
 	selected_ing = null
 	item_in_hand.visible = false
 
 func _on_mix_btn_pressed():
+	
 	if (is_ingl_valid()):
-		print("AOK")
+		SoundManager.play_sound("brew")
+		if Utils.compare_potions(ing_l, current_potion.ingr_array) == true:
+			#update_score()
+			create_new_potion()
 	else:
 		print("NAH")
 
@@ -136,6 +145,10 @@ func reverse_is_ingl_valid() -> bool:
 			ok = false
 			break
 	return ok
+
+func create_new_potion():
+	current_potion = Potion.randomize_potion()
+	update_journal_display()
 
 func update_journal_display():
 	$CanvasLayer/PotionNameLabel.text = current_potion.potion_name

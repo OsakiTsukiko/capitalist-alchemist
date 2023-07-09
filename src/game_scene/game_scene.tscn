@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3qolrbcgxuxy"]
+[gd_scene load_steps=12 format=3 uid="uid://c3qolrbcgxuxy"]
 
 [ext_resource type="Script" path="res://src/game_scene/game_scene.gd" id="1_cuv0s"]
 [ext_resource type="Texture2D" uid="uid://cv3f5tvrom8l0" path="res://assets/img/main_scene_bg.png" id="1_xgtk4"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://xmx2qpspvagw" path="res://assets/img/ing/ABIGAIL.png" id="6_tsl88"]
 [ext_resource type="Shader" path="res://src/temp_scene/temp_scene.gdshader" id="8_3ri3a"]
 [ext_resource type="Texture2D" uid="uid://ce6p0d78poca5" path="res://assets/img/SCRIB.png" id="8_6jdog"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_njdpf"]
+shader = ExtResource("8_3ri3a")
+shader_parameter/color = null
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ywsex"]
 shader = ExtResource("8_3ri3a")
@@ -24,6 +28,7 @@ centered = false
 
 [node name="CauldCont" type="Sprite2D" parent="."]
 visible = false
+material = SubResource("ShaderMaterial_njdpf")
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_tdwi6")
 centered = false
