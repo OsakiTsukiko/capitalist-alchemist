@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cf1w83neq668m"]
 
-[ext_resource type="Script" path="res://Control.gd" id="1_hdv68"]
+[ext_resource type="Script" path="res://src/game_over/Control.gd" id="1_nsftv"]
 [ext_resource type="Texture2D" uid="uid://bwkoqo1hto8p2" path="res://assets/img/ui_bg.png" id="2_dse02"]
 [ext_resource type="FontFile" uid="uid://jp2ejc0xasmn" path="res://assets/fonts/Blackwood Castle.ttf" id="3_fcxs3"]
 [ext_resource type="FontFile" uid="uid://b14682xgll42v" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="4_7pypk"]
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_hdv68")
+script = ExtResource("1_nsftv")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
