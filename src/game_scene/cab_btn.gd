@@ -21,3 +21,8 @@ func _on_ing_mouse_entered():
 func _on_ing_mouse_exited():
 	if (get_tree().get_nodes_in_group("cabinet")[0].has_method("ind_ext_area")):
 		get_tree().get_nodes_in_group("cabinet")[0].ind_ext_area()
+
+
+func _on_ing_pressed():
+	if(get_tree().get_nodes_in_group("cabinet")[0].has_method("select_ing")):
+		get_tree().get_nodes_in_group("cabinet")[0].select_ing(ing)

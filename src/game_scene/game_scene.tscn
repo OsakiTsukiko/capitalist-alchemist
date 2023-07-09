@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3qolrbcgxuxy"]
+[gd_scene load_steps=7 format=3 uid="uid://c3qolrbcgxuxy"]
 
 [ext_resource type="Script" path="res://src/game_scene/game_scene.gd" id="1_cuv0s"]
 [ext_resource type="Texture2D" uid="uid://cv3f5tvrom8l0" path="res://assets/img/main_scene_bg.png" id="1_xgtk4"]
 [ext_resource type="PackedScene" uid="uid://u7eb6leiedij" path="res://src/game_scene/indicator.tscn" id="3_sxek4"]
 [ext_resource type="FontFile" uid="uid://jp2ejc0xasmn" path="res://assets/fonts/Blackwood Castle.ttf" id="4_a8mpk"]
 [ext_resource type="PackedScene" uid="uid://dbvehg1dmn6kp" path="res://src/game_scene/cabinet.tscn" id="5_tukyl"]
+[ext_resource type="Texture2D" uid="uid://xmx2qpspvagw" path="res://assets/img/ing/ABIGAIL.png" id="6_tsl88"]
 
-[node name="GameScene" type="Node2D"]
+[node name="GameScene" type="Node2D" groups=["game_scene"]]
 script = ExtResource("1_cuv0s")
 
 [node name="BG" type="Sprite2D" parent="."]
@@ -41,6 +42,23 @@ vertical_alignment = 1
 
 [node name="Cabinet" parent="CanvasLayer" instance=ExtResource("5_tukyl")]
 visible = false
+
+[node name="ItemInHand" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.037
+anchor_top = 0.058
+anchor_right = 0.037
+anchor_bottom = 0.058
+offset_left = -50.024
+offset_top = -50.112
+offset_right = 49.976
+offset_bottom = 49.888
+pivot_offset = Vector2(50, 50)
+mouse_filter = 2
+texture = ExtResource("6_tsl88")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
