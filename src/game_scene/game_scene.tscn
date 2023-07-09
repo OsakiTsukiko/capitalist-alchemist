@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3qolrbcgxuxy"]
+[gd_scene load_steps=10 format=3 uid="uid://c3qolrbcgxuxy"]
 
 [ext_resource type="Script" path="res://src/game_scene/game_scene.gd" id="1_cuv0s"]
 [ext_resource type="Texture2D" uid="uid://cv3f5tvrom8l0" path="res://assets/img/main_scene_bg.png" id="1_xgtk4"]
 [ext_resource type="PackedScene" uid="uid://u7eb6leiedij" path="res://src/game_scene/indicator.tscn" id="3_sxek4"]
 [ext_resource type="FontFile" uid="uid://jp2ejc0xasmn" path="res://assets/fonts/Blackwood Castle.ttf" id="4_a8mpk"]
 [ext_resource type="PackedScene" uid="uid://dbvehg1dmn6kp" path="res://src/game_scene/cabinet.tscn" id="5_tukyl"]
+[ext_resource type="FontFile" uid="uid://b14682xgll42v" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="6_q10wx"]
+[ext_resource type="Shader" path="res://src/temp_scene/temp_scene.gdshader" id="7_7xepj"]
+[ext_resource type="Texture2D" uid="uid://clc7gwb1y4qys" path="res://assets/img/SCRIB.png" id="7_d3ipf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_11eux"]
+shader = ExtResource("7_7xepj")
+shader_parameter/color = null
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_cuv0s")
@@ -42,12 +49,54 @@ vertical_alignment = 1
 [node name="Cabinet" parent="CanvasLayer" instance=ExtResource("5_tukyl")]
 visible = false
 
+[node name="PotionNameLabel" type="Label" parent="CanvasLayer"]
+offset_left = 958.0
+offset_top = 64.0
+offset_right = 1203.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(0.2, 0.14902, 0.00392157, 1)
+theme_override_fonts/font = ExtResource("4_a8mpk")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+max_lines_visible = 2
+
+[node name="BtnBuy" type="Button" parent="CanvasLayer"]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 961.0
+offset_top = 563.0
+offset_right = 1289.0
+offset_bottom = 646.0
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_fonts/font = ExtResource("6_q10wx")
+theme_override_font_sizes/font_size = 65
+text = "Buy Potion"
+
+[node name="PotionDescriptionLabel" type="Label" parent="CanvasLayer"]
+offset_left = 966.0
+offset_top = 151.0
+offset_right = 1288.0
+offset_bottom = 459.0
+theme_override_colors/font_color = Color(0.2, 0.14902, 0.00392157, 1)
+theme_override_fonts/font = ExtResource("4_a8mpk")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 300.0
 one_shot = true
 
+[node name="Scrib" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_11eux")
+position = Vector2(1234, 100)
+scale = Vector2(0.382812, 0.366248)
+texture = ExtResource("7_d3ipf")
+
 [connection signal="mouse_entered" from="CanvasLayer/CabinetBTN" to="." method="_on_cabinet_btn_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/CabinetBTN" to="." method="_on_cabinet_btn_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/CabinetBTN" to="." method="_on_cabinet_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/BtnBuy" to="." method="_on_btn_buy_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
