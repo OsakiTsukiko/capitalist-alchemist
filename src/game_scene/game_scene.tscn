@@ -40,6 +40,55 @@ theme_override_font_sizes/font_size = 67
 text = "05:01"
 vertical_alignment = 1
 
+[node name="Control" type="Control" parent="CanvasLayer/TimerLabel"]
+anchors_preset = 0
+offset_left = 612.0
+offset_top = 395.0
+offset_right = 652.0
+offset_bottom = 435.0
+
+[node name="IngBTN1" type="TextureButton" parent="CanvasLayer/TimerLabel/Control"]
+layout_mode = 0
+offset_right = 68.0
+offset_bottom = 68.0
+mouse_default_cursor_shape = 2
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="IngBTN2" type="TextureButton" parent="CanvasLayer/TimerLabel/Control"]
+offset_left = 89.0
+offset_top = -4.0
+offset_right = 157.0
+offset_bottom = 64.0
+mouse_default_cursor_shape = 2
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="IngBTN3" type="TextureButton" parent="CanvasLayer/TimerLabel/Control"]
+offset_left = 4.0
+offset_top = 85.0
+offset_right = 72.0
+offset_bottom = 153.0
+mouse_default_cursor_shape = 2
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="IngBTN4" type="TextureButton" parent="CanvasLayer/TimerLabel/Control"]
+offset_left = 91.0
+offset_top = 84.0
+offset_right = 159.0
+offset_bottom = 152.0
+mouse_default_cursor_shape = 2
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="MixBTN" type="TextureButton" parent="CanvasLayer/TimerLabel/Control"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 169.0
+offset_right = 164.0
+offset_bottom = 227.0
+
 [node name="Cabinet" parent="CanvasLayer" instance=ExtResource("5_tukyl")]
 visible = false
 
@@ -68,4 +117,9 @@ one_shot = true
 [connection signal="mouse_entered" from="CanvasLayer/CabinetBTN" to="." method="_on_cabinet_btn_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/CabinetBTN" to="." method="_on_cabinet_btn_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/CabinetBTN" to="." method="_on_cabinet_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/TimerLabel/Control/IngBTN1" to="." method="_on_ing_btn_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/TimerLabel/Control/IngBTN2" to="." method="_on_ing_btn_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/TimerLabel/Control/IngBTN3" to="." method="_on_ing_btn_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/TimerLabel/Control/IngBTN4" to="." method="_on_ing_btn_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/TimerLabel/Control/MixBTN" to="." method="_on_mix_btn_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

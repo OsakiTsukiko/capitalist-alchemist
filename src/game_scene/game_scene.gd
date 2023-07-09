@@ -10,7 +10,14 @@ var indicator_visible: bool = false
 
 @onready var item_in_hand: TextureRect = $CanvasLayer/ItemInHand
 
+@onready var ing_btn_1: TextureButton = $CanvasLayer/TimerLabel/Control/IngBTN1
+@onready var ing_btn_2: TextureButton = $CanvasLayer/TimerLabel/Control/IngBTN2
+@onready var ing_btn_3: TextureButton = $CanvasLayer/TimerLabel/Control/IngBTN3
+@onready var ing_btn_4: TextureButton = $CanvasLayer/TimerLabel/Control/IngBTN4
+
 var selected_ing: Ingredient = null
+
+var ing_l: Array[Ingredient] = [null, null, null, null]
 
 func _ready():
 	timer.start()
@@ -59,3 +66,43 @@ func _on_cabinet_btn_mouse_exited():
 	if (!cabinet_node.visible):
 		indicator_visible = false
 		indicator.visible = indicator_visible
+
+
+func _on_ing_btn_1_pressed():
+	ing_l[0] = selected_ing
+	if (selected_ing != null):
+		ing_btn_1.texture_normal = selected_ing.texture
+	else:
+		ing_btn_1.texture_normal = null
+	selected_ing = null
+	item_in_hand.visible = false
+
+func _on_ing_btn_2_pressed():
+	ing_l[1] = selected_ing
+	if (selected_ing != null):
+		ing_btn_2.texture_normal = selected_ing.texture
+	else:
+		ing_btn_2.texture_normal = null
+	selected_ing = null
+	item_in_hand.visible = false
+
+func _on_ing_btn_3_pressed():
+	ing_l[2] = selected_ing
+	if (selected_ing != null):
+		ing_btn_3.texture_normal = selected_ing.texture
+	else:
+		ing_btn_3.texture_normal = null
+	selected_ing = null
+	item_in_hand.visible = false
+
+func _on_ing_btn_4_pressed():
+	ing_l[3] = selected_ing
+	if (selected_ing != null):
+		ing_btn_4.texture_normal = selected_ing.texture
+	else:
+		ing_btn_4.texture_normal = null
+	selected_ing = null
+	item_in_hand.visible = false
+
+func _on_mix_btn_pressed():
+	pass # Replace with function body.
