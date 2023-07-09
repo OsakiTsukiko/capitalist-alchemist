@@ -15,6 +15,10 @@ var indicator_visible: bool = false
 @onready var ing_btn_3: TextureButton = $CanvasLayer/TimerLabel/Control/IngBTN3
 @onready var ing_btn_4: TextureButton = $CanvasLayer/TimerLabel/Control/IngBTN4
 
+@onready var cauld_cont: Sprite2D = $CauldCont
+
+var score: int = 0
+
 var selected_ing: Ingredient = null
 
 var ing_l: Array[Ingredient] = [null, null, null, null]
@@ -27,6 +31,8 @@ func _process(delta):
 		indicator.global_position = get_viewport().get_mouse_position()
 	
 	item_in_hand.global_position = get_viewport().get_mouse_position() - Vector2(50, 50)
+	
+	cauld_cont.visible = !reverse_is_ingl_valid()
 	
 	var time_left = "";
 	var tl = timer.time_left
@@ -105,4 +111,23 @@ func _on_ing_btn_4_pressed():
 	item_in_hand.visible = false
 
 func _on_mix_btn_pressed():
-	pass # Replace with function body.
+	if (is_ingl_valid()):
+		print("AOK")
+	else:
+		print("NAH")
+
+func is_ingl_valid() -> bool:
+	var ok: bool = true
+	for i in ing_l:
+		if (i == null):
+			ok = false
+			break
+	return ok
+
+func reverse_is_ingl_valid() -> bool:
+	var ok: bool = true
+	for i in ing_l:
+		if (i != null):
+			ok = false
+			break
+	return ok

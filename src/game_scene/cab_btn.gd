@@ -8,7 +8,7 @@ var ing: Ingredient
 
 func init(p_img: Texture, p_desc: String, p_ing: Ingredient):
 	img = p_img
-	desc = p_desc
+	desc = "~ " + p_ing.id.capitalize() + " ~\n" + p_desc
 	ing = p_ing
 
 func _ready():
