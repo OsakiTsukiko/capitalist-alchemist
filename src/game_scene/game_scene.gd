@@ -259,7 +259,7 @@ func update_journal_display():
 			if ok == true:
 				description_label.text += ","
 			
-			match current_potion.prop_array[i + 1]:
+			match current_potion.prop_array[i + 6]:
 				1:
 					description_label.text += " faintly"
 				2:
