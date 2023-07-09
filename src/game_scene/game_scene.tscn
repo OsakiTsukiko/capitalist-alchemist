@@ -1,12 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3qolrbcgxuxy"]
+[gd_scene load_steps=10 format=3 uid="uid://c3qolrbcgxuxy"]
 
 [ext_resource type="Script" path="res://src/game_scene/game_scene.gd" id="1_cuv0s"]
 [ext_resource type="Texture2D" uid="uid://cv3f5tvrom8l0" path="res://assets/img/main_scene_bg.png" id="1_xgtk4"]
+[ext_resource type="Shader" path="res://src/game_scene/cauld_cont_shader.gdshader" id="3_p3cbb"]
 [ext_resource type="PackedScene" uid="uid://u7eb6leiedij" path="res://src/game_scene/indicator.tscn" id="3_sxek4"]
 [ext_resource type="Texture2D" uid="uid://jpywj2i0rcy0" path="res://assets/img/CAULD_CONT.png" id="3_tdwi6"]
 [ext_resource type="FontFile" uid="uid://jp2ejc0xasmn" path="res://assets/fonts/Blackwood Castle.ttf" id="4_a8mpk"]
 [ext_resource type="PackedScene" uid="uid://dbvehg1dmn6kp" path="res://src/game_scene/cabinet.tscn" id="5_tukyl"]
 [ext_resource type="Texture2D" uid="uid://xmx2qpspvagw" path="res://assets/img/ing/ABIGAIL.png" id="6_tsl88"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_672kn"]
+shader = ExtResource("3_p3cbb")
+shader_parameter/color = null
 
 [node name="GameScene" type="Node2D" groups=["game_scene"]]
 script = ExtResource("1_cuv0s")
@@ -18,6 +23,7 @@ centered = false
 
 [node name="CauldCont" type="Sprite2D" parent="."]
 visible = false
+material = SubResource("ShaderMaterial_672kn")
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_tdwi6")
 centered = false

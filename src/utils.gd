@@ -165,10 +165,10 @@ func compare_potions(ingr_array_potion_1: Array[Ingredient], ingr_array_potion_2
 func mixer(col_arr: Array[Color]):
 	if (col_arr.size() == 0):
 		return Color.BLACK
-	print(col_arr)
+#	print(col_arr)
 	var lcarr: Array = []
 	for col in col_arr:
-		print(Mixbox.rgb_to_latent(col))
+#		print(Mixbox.rgb_to_latent(col))
 		lcarr.push_back(
 			Mixbox.rgb_to_latent(col)
 		)
@@ -181,7 +181,7 @@ func mixer(col_arr: Array[Color]):
 		for lc in lcarr:
 			z_mix[i] += lc[i] * (1.0/lcarr.size())
 
-	print(z_mix)
+#	print(z_mix)
 	var color_mix = Mixbox.latent_to_rgb(z_mix)
 #	var color_mix = Color.BLACK
 	return color_mix
