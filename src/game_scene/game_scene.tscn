@@ -1,8 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://c3qolrbcgxuxy"]
 
+
 [ext_resource type="Script" path="res://src/game_scene/game_scene.gd" id="1_cuv0s"]
 [ext_resource type="Texture2D" uid="uid://cv3f5tvrom8l0" path="res://assets/img/main_scene_bg.png" id="1_xgtk4"]
 [ext_resource type="PackedScene" uid="uid://u7eb6leiedij" path="res://src/game_scene/indicator.tscn" id="3_sxek4"]
+[ext_resource type="Texture2D" uid="uid://jpywj2i0rcy0" path="res://assets/img/CAULD_CONT.png" id="3_tdwi6"]
 [ext_resource type="FontFile" uid="uid://jp2ejc0xasmn" path="res://assets/fonts/Blackwood Castle.ttf" id="4_a8mpk"]
 [ext_resource type="PackedScene" uid="uid://dbvehg1dmn6kp" path="res://src/game_scene/cabinet.tscn" id="5_tukyl"]
 [ext_resource type="FontFile" uid="uid://b14682xgll42v" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="6_q10wx"]
@@ -12,13 +14,20 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_11eux"]
 shader = ExtResource("7_7xepj")
 shader_parameter/color = null
+[ext_resource type="Texture2D" uid="uid://xmx2qpspvagw" path="res://assets/img/ing/ABIGAIL.png" id="6_tsl88"]
 
-[node name="GameScene" type="Node2D"]
+[node name="GameScene" type="Node2D" groups=["game_scene"]]
 script = ExtResource("1_cuv0s")
 
 [node name="BG" type="Sprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_xgtk4")
+centered = false
+
+[node name="CauldCont" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_tdwi6")
 centered = false
 
 [node name="Areas" type="Node2D" parent="."]
@@ -45,6 +54,59 @@ theme_override_fonts/font = ExtResource("4_a8mpk")
 theme_override_font_sizes/font_size = 67
 text = "05:01"
 vertical_alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/TimerLabel"]
+anchors_preset = 0
+offset_left = 612.0
+offset_top = 395.0
+offset_right = 652.0
+offset_bottom = 435.0
+
+[node name="IngBTN1" type="TextureButton" parent="CanvasLayer/TimerLabel/Control"]
+layout_mode = 0
+offset_right = 68.0
+offset_bottom = 68.0
+mouse_default_cursor_shape = 2
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="IngBTN2" type="TextureButton" parent="CanvasLayer/TimerLabel/Control"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = -4.0
+offset_right = 157.0
+offset_bottom = 64.0
+mouse_default_cursor_shape = 2
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="IngBTN3" type="TextureButton" parent="CanvasLayer/TimerLabel/Control"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 85.0
+offset_right = 72.0
+offset_bottom = 153.0
+mouse_default_cursor_shape = 2
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="IngBTN4" type="TextureButton" parent="CanvasLayer/TimerLabel/Control"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 84.0
+offset_right = 159.0
+offset_bottom = 152.0
+mouse_default_cursor_shape = 2
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="MixBTN" type="TextureButton" parent="CanvasLayer/TimerLabel/Control"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 169.0
+offset_right = 164.0
+offset_bottom = 227.0
+mouse_default_cursor_shape = 2
 
 [node name="Cabinet" parent="CanvasLayer" instance=ExtResource("5_tukyl")]
 visible = false
@@ -83,6 +145,22 @@ theme_override_colors/font_color = Color(0.2, 0.14902, 0.00392157, 1)
 theme_override_fonts/font = ExtResource("4_a8mpk")
 theme_override_font_sizes/font_size = 20
 autowrap_mode = 3
+[node name="ItemInHand" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.037
+anchor_top = 0.058
+anchor_right = 0.037
+anchor_bottom = 0.058
+offset_left = -50.024
+offset_top = -50.112
+offset_right = 49.976
+offset_bottom = 49.888
+pivot_offset = Vector2(50, 50)
+mouse_filter = 2
+texture = ExtResource("6_tsl88")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
@@ -99,4 +177,9 @@ texture = ExtResource("7_d3ipf")
 [connection signal="mouse_exited" from="CanvasLayer/CabinetBTN" to="." method="_on_cabinet_btn_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/CabinetBTN" to="." method="_on_cabinet_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/BtnBuy" to="." method="_on_btn_buy_pressed"]
+[connection signal="pressed" from="CanvasLayer/TimerLabel/Control/IngBTN1" to="." method="_on_ing_btn_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/TimerLabel/Control/IngBTN2" to="." method="_on_ing_btn_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/TimerLabel/Control/IngBTN3" to="." method="_on_ing_btn_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/TimerLabel/Control/IngBTN4" to="." method="_on_ing_btn_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/TimerLabel/Control/MixBTN" to="." method="_on_mix_btn_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
