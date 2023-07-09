@@ -3,13 +3,13 @@ extends Node
 
 var id: String
 var color: Color
-var properties: Array[int]
+var prop_arr: Array[int]
 var num: int
 
-func _init(p_id: String, p_color: Color, p_properties: Array[int], p_num: int):
+func _init(p_id: String, p_color: Color, p_prop_arr: Array[int], p_num: int):
 	id = p_id
 	color = p_color
-	properties = p_properties
+	prop_arr = p_prop_arr
 	num = p_num
 
 
