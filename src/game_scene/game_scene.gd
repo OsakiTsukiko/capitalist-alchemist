@@ -23,8 +23,13 @@ var selected_ing: Ingredient = null
 
 var ing_l: Array[Ingredient] = [null, null, null, null]
 
+var current_potion: Potion
+@onready var description_label = $CanvasLayer/PotionDescriptionLabel
+
 func _ready():
 	timer.start()
+	current_potion = Potion.randomize_potion()
+	update_journal_display()
 
 func _process(delta):
 	if (indicator_visible && !cabinet_node.visible):
@@ -131,3 +136,83 @@ func reverse_is_ingl_valid() -> bool:
 			ok = false
 			break
 	return ok
+
+func update_journal_display():
+	$CanvasLayer/PotionNameLabel.text = current_potion.potion_name
+	$Scrib.material.set_shader_parameter("color", current_potion.color)
+	
+	var ok: bool = 0
+	
+	description_label.text = ""
+	
+	description_label.text += "It is a "
+	
+	match current_potion.prop_array[0]:
+		0:
+			description_label.text += "fine powder substance.\n\n"
+		1:
+			description_label.text += "semisolid, cream-like consistency.\n\n"
+		2:
+			description_label.text += "watery, liquid concoction.\n\n"
+	
+	description_label.text += "In terms of taste, the substance is"
+	for i in range(5):
+		if current_potion.prop_array[i + 1] != 0:
+			
+			if ok == true:
+				description_label.text += ","
+			
+			match current_potion.prop_array[i + 1]:
+				1:
+					description_label.text += " slightly"
+				2:
+					description_label.text += ""
+				3:
+					description_label.text += " very"
+			
+			match i + 1:
+				1:
+					description_label.text += " sweet"
+				2:
+					description_label.text += " sour"
+				3:
+					description_label.text += " salty"
+				4:
+					description_label.text += " bitter"
+				5:
+					description_label.text += " mild"
+			ok = 1
+	
+	ok = false
+	description_label.text += ".\n\nThe smell of the substance is"
+	for i in range(3):
+		if current_potion.prop_array[i + 6] != 0:
+			
+			if ok == true:
+				description_label.text += ","
+			
+			match current_potion.prop_array[i + 1]:
+				1:
+					description_label.text += " faintly"
+				2:
+					description_label.text += ""
+				3:
+					description_label.text += " pungently"
+			
+			match i + 6:
+				6:
+					description_label.text += " putrid"
+				7:
+					description_label.text += " vegetal"
+				8:
+					description_label.text += " metalic"
+			ok = 1
+	
+	description_label.text += ".\n\nThis substance has"
+	match current_potion.prop_array[9]:
+		0:
+			description_label.text += " no magic properties."
+		1:
+			description_label.text += " some magical powers."
+		2:
+			description_label.text += " great magical powers."
