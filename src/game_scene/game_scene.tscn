@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3qolrbcgxuxy"]
+
+[ext_resource type="Script" path="res://src/game_scene/game_scene.gd" id="1_cuv0s"]
+[ext_resource type="Texture2D" uid="uid://cv3f5tvrom8l0" path="res://assets/img/main_scene_bg.png" id="1_xgtk4"]
+[ext_resource type="PackedScene" uid="uid://u7eb6leiedij" path="res://src/game_scene/indicator.tscn" id="3_sxek4"]
+[ext_resource type="FontFile" uid="uid://jp2ejc0xasmn" path="res://assets/fonts/Blackwood Castle.ttf" id="4_a8mpk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo4ss"]
+size = Vector2(410.5, 278)
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource("1_cuv0s")
+
+[node name="BG" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xgtk4")
+centered = false
+
+[node name="Areas" type="Node2D" parent="."]
+
+[node name="CabinetArea" type="Area2D" parent="Areas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/CabinetArea"]
+position = Vector2(598.75, 204)
+shape = SubResource("RectangleShape2D_wo4ss")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CabinetBTN" type="TextureButton" parent="CanvasLayer"]
+offset_left = 395.0
+offset_top = 71.0
+offset_right = 809.0
+offset_bottom = 346.0
+mouse_default_cursor_shape = 2
+
+[node name="Indicator" parent="CanvasLayer" instance=ExtResource("3_sxek4")]
+visible = false
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer"]
+offset_left = 103.0
+offset_top = 42.0
+offset_right = 266.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0.188235, 0.160784, 0.129412, 1)
+theme_override_fonts/font = ExtResource("4_a8mpk")
+theme_override_font_sizes/font_size = 67
+text = "05:01"
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 300.0
+one_shot = true
+
+[connection signal="mouse_entered" from="Areas/CabinetArea" to="." method="_on_cabinet_area_mouse_entered"]
+[connection signal="mouse_exited" from="Areas/CabinetArea" to="." method="_on_cabinet_area_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/CabinetBTN" to="." method="_on_cabinet_btn_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
