@@ -11,13 +11,12 @@ func _init(p_ingr_array: Array[Ingredient]):
 	prop_array.resize(10)
 	prop_array.fill(0)
 	ingr_array = p_ingr_array
+	var color_arr: Array[Color] = [];
 	for ingr in ingr_array:
 		for prop in ingr.prop_arr:
 			prop_array[prop] += 1
-		if color == null:
-			color = ingr.color
-		else:
-			color = Mixbox.lerp(color, ingr.color, 0.5)
+		color_arr.push_back(ingr.color)
+	color = Utils.mixer(color_arr)
 	
 	potion_name = ""
 	var rand_binary: int = randi() % 2

@@ -25,6 +25,8 @@ var selected_ing: Ingredient = null
 
 var ing_l: Array[Ingredient] = [null, null, null, null]
 
+var cauldron := Cauldron.new([])
+
 func _ready():
 	timer.start()
 
