@@ -6,6 +6,10 @@ var color: Color
 var ingr_array: Array[Ingredient]
 var prop_array: Array[int]
 
+func empt():
+	while (!ingr_array.is_empty()):
+		ingr_array.pop_front()
+	prop_array.fill(0)
 
 func _init(p_ingr_array: Array[Ingredient]):
 	prop_array.resize(10)

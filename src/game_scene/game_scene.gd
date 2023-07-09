@@ -97,6 +97,8 @@ func remove_el_form_cauld(element: Ingredient):
 
 func _on_ing_btn_1_pressed():
 	if (selected_ing != null):
+		if (ing_l[0] != null):
+			remove_el_form_cauld(ing_l[0])
 		add_el_to_cauld(selected_ing)
 	else:
 		if (ing_l[0] != null):
@@ -112,6 +114,8 @@ func _on_ing_btn_1_pressed():
 
 func _on_ing_btn_2_pressed():
 	if (selected_ing != null):
+		if (ing_l[1] != null):
+			remove_el_form_cauld(ing_l[1])
 		add_el_to_cauld(selected_ing)
 	else:
 		if (ing_l[1] != null):
@@ -127,6 +131,8 @@ func _on_ing_btn_2_pressed():
 
 func _on_ing_btn_3_pressed():
 	if (selected_ing != null):
+		if (ing_l[2] != null):
+			remove_el_form_cauld(ing_l[2])
 		add_el_to_cauld(selected_ing)
 	else:
 		if (ing_l[2] != null):
@@ -142,6 +148,8 @@ func _on_ing_btn_3_pressed():
 
 func _on_ing_btn_4_pressed():
 	if (selected_ing != null):
+		if (ing_l[3] != null):
+			remove_el_form_cauld(ing_l[3])
 		add_el_to_cauld(selected_ing)
 	else:
 		if (ing_l[3] != null):
@@ -171,6 +179,7 @@ func _on_mix_btn_pressed():
 		ing_btn_2.texture_normal = null
 		ing_btn_3.texture_normal = null
 		ing_btn_4.texture_normal = null
+		cauldron.empt()
 	else:
 		SoundManager.play_sound("wrong")
 		print("NAH")
