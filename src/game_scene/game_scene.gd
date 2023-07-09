@@ -10,12 +10,14 @@ var indicator_visible: bool = false
 
 @onready var item_in_hand: TextureRect = $CanvasLayer/ItemInHand
 
-@onready var ing_btn_1: TextureButton = $CanvasLayer/TimerLabel/Control/IngBTN1
-@onready var ing_btn_2: TextureButton = $CanvasLayer/TimerLabel/Control/IngBTN2
-@onready var ing_btn_3: TextureButton = $CanvasLayer/TimerLabel/Control/IngBTN3
-@onready var ing_btn_4: TextureButton = $CanvasLayer/TimerLabel/Control/IngBTN4
+@onready var ing_btn_1: TextureButton = $CanvasLayer/Control/IngBTN1
+@onready var ing_btn_2: TextureButton = $CanvasLayer/Control/IngBTN2
+@onready var ing_btn_3: TextureButton = $CanvasLayer/Control/IngBTN3
+@onready var ing_btn_4: TextureButton = $CanvasLayer/Control/IngBTN4
 
 @onready var cauld_cont: Sprite2D = $CauldCont
+
+@onready var score_label: Label = $CanvasLayer/ScoreLabel
 
 var score: int = 0
 
@@ -33,6 +35,8 @@ func _process(delta):
 	item_in_hand.global_position = get_viewport().get_mouse_position() - Vector2(50, 50)
 	
 	cauld_cont.visible = !reverse_is_ingl_valid()
+	
+	score_label.text = "Score: " + str(score)
 	
 	var time_left = "";
 	var tl = timer.time_left
