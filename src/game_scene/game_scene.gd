@@ -158,17 +158,21 @@ func _on_ing_btn_4_pressed():
 func _on_mix_btn_pressed():
 	
 	if (is_ingl_valid()):
-		SoundManager.play_sound("brew")
+		
 		if Utils.compare_potions(ing_l, current_potion.ingr_array) == true:
+			SoundManager.play_sound("brew")
 			score += 1
 			create_new_potion()
-			ing_l.fill(null)
-			print(ing_l)
-			ing_btn_1.texture_normal = null
-			ing_btn_2.texture_normal = null
-			ing_btn_3.texture_normal = null
-			ing_btn_4.texture_normal = null
+		else:
+			SoundManager.play_sound("wrong")
+		ing_l.fill(null)
+		print(ing_l)
+		ing_btn_1.texture_normal = null
+		ing_btn_2.texture_normal = null
+		ing_btn_3.texture_normal = null
+		ing_btn_4.texture_normal = null
 	else:
+		SoundManager.play_sound("wrong")
 		print("NAH")
 
 func is_ingl_valid() -> bool:
