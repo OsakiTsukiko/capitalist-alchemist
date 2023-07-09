@@ -75,7 +75,8 @@ func _on_cabinet_btn_pressed():
 	indicator.visible = indicator_visible
 
 func _on_timer_timeout():
-	pass # Replace with function body.
+	Utils.score = score
+	get_tree().change_scene_to_packed(load("res://src/game_over/game_over.tscn"))
 
 func _on_cabinet_btn_mouse_entered():
 	if (!cabinet_node.visible):
@@ -159,8 +160,14 @@ func _on_mix_btn_pressed():
 	if (is_ingl_valid()):
 		SoundManager.play_sound("brew")
 		if Utils.compare_potions(ing_l, current_potion.ingr_array) == true:
-			#update_score()
+			score += 1
 			create_new_potion()
+			ing_l.fill(null)
+			print(ing_l)
+			ing_btn_1.texture_normal = null
+			ing_btn_2.texture_normal = null
+			ing_btn_3.texture_normal = null
+			ing_btn_4.texture_normal = null
 	else:
 		print("NAH")
 

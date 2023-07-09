@@ -184,4 +184,7 @@ func mixer(col_arr: Array[Color]):
 #	print(z_mix)
 	var color_mix = Mixbox.latent_to_rgb(z_mix)
 #	var color_mix = Color.BLACK
+	print("COLORRRRR ", color_mix)
 	return color_mix
+
+var score = 0;
