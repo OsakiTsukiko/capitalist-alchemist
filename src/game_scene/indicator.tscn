@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://u7eb6leiedij"]
+
+[ext_resource type="Script" path="res://PanelContainer.gd" id="1_5qnk3"]
+[ext_resource type="FontFile" uid="uid://jp2ejc0xasmn" path="res://assets/fonts/Blackwood Castle.ttf" id="2_q6l5x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cboy"]
+bg_color = Color(0.968627, 0.815686, 0.52549, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.164706, 0.12549, 0.105882, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="Indicator" type="PanelContainer"]
+offset_right = 21.0
+offset_bottom = 33.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2cboy")
+script = ExtResource("1_5qnk3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.164706, 0.12549, 0.105882, 1)
+theme_override_fonts/font = ExtResource("2_q6l5x")
+theme_override_font_sizes/font_size = 24
+text = "Indicator"
+horizontal_alignment = 3
+vertical_alignment = 1

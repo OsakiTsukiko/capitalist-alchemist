@@ -1,0 +1,190 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbvehg1dmn6kp"]
+
+[ext_resource type="StyleBox" uid="uid://lmr5r37gvuml" path="res://src/game_scene/cabinet_style.tres" id="1_naebe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rastr"]
+bg_color = Color(0, 0, 0, 0.286275)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfmc0"]
+bg_color = Color(0.313726, 0.254902, 0.219608, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rastr")
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cfmc0")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 5
+
+[node name="BG" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_naebe")
+
+[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="BG2" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_naebe")
+
+[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="BG3" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_naebe")
+
+[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG3"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="BG4" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_naebe")
+
+[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG4"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="BG5" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_naebe")
+
+[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG5"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="BG6" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_naebe")
+
+[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG6"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="BG7" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_naebe")
+
+[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG7"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="BG8" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_naebe")
+
+[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG8"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="BG9" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_naebe")
+
+[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG9"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="BG10" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_naebe")
+
+[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG10"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="BG11" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_naebe")
+
+[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG11"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="BG12" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_naebe")
+
+[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG12"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="BG13" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_naebe")
+
+[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG13"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="BG14" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_naebe")
+
+[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG14"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="BG15" type="PanelContainer" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_naebe")
+
+[node name="Ing" type="TextureButton" parent="Panel/CenterContainer/PanelContainer/MarginContainer/GridContainer/BG15"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
