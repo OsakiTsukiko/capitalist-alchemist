@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvfu7squdj0um"]
+[gd_scene load_steps=6 format=3 uid="uid://dvfu7squdj0um"]
 
 [ext_resource type="Texture2D" uid="uid://bwkoqo1hto8p2" path="res://assets/img/ui_bg.png" id="1_eajt5"]
 [ext_resource type="Script" path="res://src/intro_scene/intro_scene.gd" id="1_ns85y"]
 [ext_resource type="Texture2D" uid="uid://b07rrudoqjtlc" path="res://assets/img/intro_scene/BRUH.png" id="2_q7t3w"]
 [ext_resource type="FontFile" uid="uid://b14682xgll42v" path="res://assets/fonts/MedievalSharp-Regular.ttf" id="3_anyt3"]
+[ext_resource type="FontFile" uid="uid://jp2ejc0xasmn" path="res://assets/fonts/Blackwood Castle.ttf" id="4_am0s7"]
 
 [node name="IntroScene" type="Control"]
 layout_mode = 3
@@ -29,12 +30,12 @@ offset_right = 1166.0
 offset_bottom = 702.0
 theme_override_colors/default_color = Color(0.145098, 0.0823529, 0, 1)
 theme_override_constants/outline_size = 2
-theme_override_fonts/normal_font = ExtResource("3_anyt3")
-theme_override_fonts/bold_font = ExtResource("3_anyt3")
-theme_override_font_sizes/normal_font_size = 35
-theme_override_font_sizes/bold_font_size = 50
+theme_override_fonts/normal_font = ExtResource("4_am0s7")
+theme_override_fonts/bold_font = ExtResource("4_am0s7")
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 60
 bbcode_enabled = true
-text = "[b]Times are rough for your alchemy shop.[/b]   You arent bringing people in, your concoctions are dull and weak. You envy the neighboring shop-owner for their succes and riches. You know what you have to do. It isn't stealing if you make up the recipe yourself so you have decided to guess the composition of their potions for your own shop. Hopefully then, your bussines won't fail.
+text = "[b]Times are rough for your alchemy shop.[/b]   You aren't bringing people in, your concoctions are dull and weak. You envy the neighboring shop-owner for their succes and riches. You know what you have to do. It isn't stealing if you make up the recipe yourself so you have decided to guess the composition of their potions for your own shop. Hopefully then, your bussines won't fail.
 
 Send your assistant to analyze the potions for you. It would be too obvious if you yourself were to buy their whole stock. Do your best."
 
