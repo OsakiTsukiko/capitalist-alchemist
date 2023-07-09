@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvjff88bww1uc"]
+
+[ext_resource type="Script" path="res://src/sound_manager/sound_manager.gd" id="1_sv1qm"]
+[ext_resource type="AudioStream" uid="uid://cr1hf6k2ovdey" path="res://assets/music/medieval-fantasy.mp3" id="2_1pd37"]
+[ext_resource type="AudioStream" uid="uid://cmj4evywyhlt5" path="res://assets/sfx/interface1.wav" id="3_an1et"]
+[ext_resource type="AudioStream" uid="uid://bvifarlv6hxm0" path="res://assets/sfx/bubble3.wav" id="4_4p8t4"]
+[ext_resource type="AudioStream" uid="uid://f21wknuu8hlr" path="res://assets/sfx/coin3.wav" id="5_l6a1v"]
+[ext_resource type="AudioStream" uid="uid://bfnup1mas56r4" path="res://assets/sfx/door.wav" id="6_fbf25"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_sv1qm")
+
+[node name="BGMStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_1pd37")
+autoplay = true
+bus = &"Music Bus"
+
+[node name="InterfaceClickStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_an1et")
+bus = &"Sfx Bus"
+
+[node name="BrewPotionStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4p8t4")
+bus = &"Sfx Bus"
+
+[node name="BuyPotionStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_l6a1v")
+bus = &"Sfx Bus"
+
+[node name="DoorStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_fbf25")
+bus = &"Sfx Bus"
