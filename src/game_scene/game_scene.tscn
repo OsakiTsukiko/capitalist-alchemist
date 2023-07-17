@@ -45,9 +45,6 @@ offset_right = 809.0
 offset_bottom = 346.0
 mouse_default_cursor_shape = 2
 
-[node name="Indicator" parent="CanvasLayer" instance=ExtResource("3_sxek4")]
-visible = false
-
 [node name="TimerLabel" type="Label" parent="CanvasLayer"]
 offset_left = 103.0
 offset_top = 42.0
@@ -160,6 +157,11 @@ offset_top = 169.0
 offset_right = 164.0
 offset_bottom = 227.0
 mouse_default_cursor_shape = 2
+
+[node name="Indicator" parent="CanvasLayer" instance=ExtResource("3_sxek4")]
+visible = false
+offset_right = 106.0
+offset_bottom = 47.0
 
 [node name="Cabinet" parent="CanvasLayer" instance=ExtResource("5_tukyl")]
 visible = false
